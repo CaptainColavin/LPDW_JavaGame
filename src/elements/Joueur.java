@@ -12,8 +12,9 @@ public class Joueur extends Element {
 	public Element[][] move(int m, Element[][] carte) {
 		switch (m) {
 		case 8: 
-			if(!(this.getX() == 0)) {
+			if(!(this.getX() - 1 <= 0)) {
 				//je met la valeur de la carte a jour
+				carte[this.getX()][this.getY()] = new Herbe(this.getX(), this.getY());
 				carte[this.getX()-1][this.getY()] = this;
 				//Je met la valeur du joueur à jour
 				this.setX(this.getX()-1);
@@ -24,8 +25,9 @@ public class Joueur extends Element {
 		case 2:
 			
 			
-			if(!(this.getX() == 20)) {
+			if(!(this.getX() + 1 >= 20)) {
 				//je met la valeur de la carte a jour
+				carte[this.getX()][this.getY()] = new Herbe(this.getX(), this.getY());
 				carte[this.getX()+1][this.getY()] = this;
 				//Je met la valeur du joueur à jour
 				this.setX(this.getX()+1);
@@ -35,9 +37,10 @@ public class Joueur extends Element {
 		case 4:
 
 		
-			if(!(this.getY() == 0)) {
+			if(!(this.getY() - 1 <= 0)) {
 				
 				//je met la valeur de la carte a jour
+				carte[this.getX()][this.getY()] = new Herbe(this.getX(), this.getY());
 				carte[this.getX()][this.getY()-1] = this;
 				//Je met la valeur du joueur à jour
 				this.setY(this.getY()-1);
@@ -46,10 +49,10 @@ public class Joueur extends Element {
 			
 			return carte;
 		case 6:
-			if(!(this.getY() == 20)) {
-
+			if(!(this.getY() + 1 >= 20)) {
 				//je met la valeur de la carte a jour
-				carte[this.getX()][this.getY()] = this;
+				carte[this.getX()][this.getY()] = new Herbe(this.getX(), this.getY());
+				carte[this.getX()][this.getY()+1] = this;
 				//Je met la valeur du joueur à jour
 				this.setY(this.getY()+1);
 			}		

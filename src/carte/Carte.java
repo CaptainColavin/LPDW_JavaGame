@@ -114,13 +114,13 @@ public class Carte {
 		switch (m) {
 		case 8: 
 			
-			if(!(player.getX() == 0)) {
+			if(!(player.getX() - 1 <= 0)) {
 				return this.carte[player.getX() - 1][player.getY()].getRepresentedBy();
 			}		
 			return null;
 		case 2:
 			
-			if(!(player.getX() == this.getHauteur())) {
+			if(!(player.getX() + 1 >= 19)) {
 				return this.carte[player.getX() + 1][player.getY()].getRepresentedBy();
 			}		
 			return null;
@@ -129,13 +129,13 @@ public class Carte {
 			
 			
 		case 4:
-			if(!(player.getX() == 0)) {
+			if(!(player.getY() - 1 <= 0)) {
 				return this.carte[player.getX()][player.getY() - 1].getRepresentedBy();
 			}		
 			return null;
 			
 		case 6:
-			if(!(player.getX() == this.getLongueur())) {
+			if(!(player.getY() + 1 >= 19)) {
 				return this.carte[player.getX()][player.getY() + 1].getRepresentedBy();
 			}		
 			return null;

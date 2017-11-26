@@ -29,7 +29,7 @@ public class Appli {
 			System.out.println("Deplacer vous");
 			mouvement = sc.nextInt();
 			carte.getElement(mouvement, player); //on veut la valeur de l'objet sur la case suivant le déplacement
-			System.out.println(" TESSSSSST"+carte.getElement(mouvement, player));
+			
 			carte.setCarte(player.move(mouvement, carte.getCarte())); // on deplace le joueur
 			carte.afficherCarte();
 		}
