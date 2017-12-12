@@ -117,13 +117,12 @@ public class Carte {
 			if(!(player.getX() - 1 <= 0)) {
 				return this.carte[player.getX() - 1][player.getY()].getRepresentedBy();
 			}		
-			return null;
+			return "9";
 		case 2:
-			
 			if(!(player.getX() + 1 >= 19)) {
 				return this.carte[player.getX() + 1][player.getY()].getRepresentedBy();
 			}		
-			return null;
+			return "9";
 			
 			
 			
@@ -132,21 +131,20 @@ public class Carte {
 			if(!(player.getY() - 1 <= 0)) {
 				return this.carte[player.getX()][player.getY() - 1].getRepresentedBy();
 			}		
-			return null;
+			return "9";
 			
 		case 6:
 			if(!(player.getY() + 1 >= 19)) {
 				return this.carte[player.getX()][player.getY() + 1].getRepresentedBy();
 			}		
-			return null;
+			return "9";
 		case 0: 
-			//TODO GERER FIN DU JEU
-			break;
+			return "0";
 		
 		default:
 			System.out.println("Ce mouvement n'est pas valide");
 		}
-		return null;
+		return "9";
 	}
 
 	

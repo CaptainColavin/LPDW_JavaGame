@@ -1,12 +1,21 @@
 package elements;
 
 public class Joueur extends Element {
-	int gold, key;
+	int gold, key,vie;
 
 	public Joueur() {
 		super(0, 0, "x");
+		this.vie = 10;
 		this.gold = 0;
 		this.key = 0;
+	}
+
+	public int getVie() {
+		return vie;
+	}
+
+	public void setVie(int vie) {
+		this.vie = vie;
 	}
 
 	public Element[][] move(int m, Element[][] carte) {
@@ -68,6 +77,22 @@ public class Joueur extends Element {
 			
 		}
 		return null;
+	}
+
+	public int getGold() {
+		return gold;
+	}
+
+	public void setGold(int gold) {
+		this.gold = gold;
+	}
+
+	public int getKey() {
+		return key;
+	}
+
+	public void setKey(int key) {
+		this.key = key;
 	}
 
 }
