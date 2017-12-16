@@ -19,63 +19,64 @@ public class Joueur extends Element {
 	}
 
 	public Element[][] move(int m, Element[][] carte) {
-		switch (m) {
-		case 8: 
-			if(!(this.getX() - 1 <= 0)) {
-				//je met la valeur de la carte a jour
-				carte[this.getX()][this.getY()] = new Herbe(this.getX(), this.getY());
-				carte[this.getX()-1][this.getY()] = this;
-				//Je met la valeur du joueur à jour
-				this.setX(this.getX()-1);
-			}
-			//retourner la carte modifiée
 		
-			return carte;
-		case 2:
-			
-			
-			if(!(this.getX() + 1 >= 20)) {
-				//je met la valeur de la carte a jour
-				carte[this.getX()][this.getY()] = new Herbe(this.getX(), this.getY());
-				carte[this.getX()+1][this.getY()] = this;
-				//Je met la valeur du joueur à jour
-				this.setX(this.getX()+1);
-			}		
-			
-			return carte;
-		case 4:
+		try { 
+			switch (m) {
+			case 8: 
+					//je met la valeur de la carte a jour
+					carte[this.getX()][this.getY()] = new Herbe(this.getX(), this.getY());
+					carte[this.getX()-1][this.getY()] = this;
+					//Je met la valeur du joueur à jour
+					this.setX(this.getX()-1);
 
-		
-			if(!(this.getY() - 1 <= 0)) {
+				//retourner la carte modifiée
+			
+				return carte;
+			case 2:
 				
-				//je met la valeur de la carte a jour
-				carte[this.getX()][this.getY()] = new Herbe(this.getX(), this.getY());
-				carte[this.getX()][this.getY()-1] = this;
-				//Je met la valeur du joueur à jour
-				this.setY(this.getY()-1);
-			}		
+				
+					//je met la valeur de la carte a jour
+					carte[this.getX()][this.getY()] = new Herbe(this.getX(), this.getY());
+					carte[this.getX()+1][this.getY()] = this;
+					//Je met la valeur du joueur à jour
+					this.setX(this.getX()+1);
+				
+				return carte;
+			case 4:
+
 			
+					
+					//je met la valeur de la carte a jour
+					carte[this.getX()][this.getY()] = new Herbe(this.getX(), this.getY());
+					carte[this.getX()][this.getY()-1] = this;
+					//Je met la valeur du joueur à jour
+					this.setY(this.getY()-1);
+				
+				
+				return carte;
+			case 6:
+					//je met la valeur de la carte a jour
+					carte[this.getX()][this.getY()] = new Herbe(this.getX(), this.getY());
+					carte[this.getX()][this.getY()+1] = this;
+					//Je met la valeur du joueur à jour
+					this.setY(this.getY()+1);
+				return carte;
+			case 0: 
+				
+				break;
 			
-			return carte;
-		case 6:
-			if(!(this.getY() + 1 >= 20)) {
-				//je met la valeur de la carte a jour
-				carte[this.getX()][this.getY()] = new Herbe(this.getX(), this.getY());
-				carte[this.getX()][this.getY()+1] = this;
-				//Je met la valeur du joueur à jour
-				this.setY(this.getY()+1);
-			}		
-			return carte;
-		case 0: 
+			default:
+				System.out.println("Ce mouvement n'est pas valide");
+				return carte;
+				
+				
+			}
 			
-			break;
+		} catch (ArrayIndexOutOfBoundsException e) {
+	         System.err.println("Hop hop hop ! Reste sur la carte bonhomme !");
+	       }
 		
-		default:
-			System.out.println("Ce mouvement n'est pas valide");
-			return carte;
-			
-			
-		}
+
 		return null;
 	}
 
@@ -93,6 +94,11 @@ public class Joueur extends Element {
 
 	public void setKey(int key) {
 		this.key = key;
+	}
+
+	public void afficherInfos() {
+		System.out.println();
+		System.out.println("Vous avez " + this.getVie()+ "PV, " + this.getGold()+ " pièces d'or et " + this.getKey()+ " Clés");
 	}
 
 }

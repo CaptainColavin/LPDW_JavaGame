@@ -25,43 +25,44 @@ public class Carte {
 		this.hauteur = 20;
 		this.carte = null;
 	}
-	
+
 	public void afficherCarte() {
 		for (int i = 0; i < this.getLongueur(); i++) {
 			for (int j = 0; j < this.getHauteur(); j++) {
-				System.out.print(this.carte[i][j].getRepresentedBy());
+				System.out.print(this.carte[i][j].getRepresentedBy()+ " ");
 			}
 			System.out.println();
 		}
 	}
 
-	public static ArrayList<Element> generateElementSet(int nbfleur, int nbArbre, int nbRocher, int nbClef, int nbLock, int nbGold, int nbTrap, int nbMonstre, int nbHerbe) {
+	public static ArrayList<Element> generateElementSet(int nbfleur, int nbArbre, int nbRocher, int nbClef, int nbLock,
+			int nbGold, int nbTrap, int nbMonstre, int nbHerbe) {
 		ArrayList<Element> elementSet = new ArrayList<>();
-		for (int i = 0; i < nbfleur ; i++) {
+		for (int i = 0; i < nbfleur; i++) {
 			elementSet.add(new Fleur(0, 0));
 		}
-		for (int i = 0; i < nbArbre ; i++) {
+		for (int i = 0; i < nbArbre; i++) {
 			elementSet.add(new Arbre(0, 0));
 		}
-		for (int i = 0; i < nbRocher ; i++) {
+		for (int i = 0; i < nbRocher; i++) {
 			elementSet.add(new Rocher(0, 0));
 		}
-		for (int i = 0; i < nbClef ; i++) {
+		for (int i = 0; i < nbClef; i++) {
 			elementSet.add(new Clef(0, 0));
 		}
-		for (int i = 0; i < nbLock ; i++) {
+		for (int i = 0; i < nbLock; i++) {
 			elementSet.add(new Cadenas(0, 0));
 		}
-		for (int i = 0; i < nbGold ; i++) {
+		for (int i = 0; i < nbGold; i++) {
 			elementSet.add(new Or(0, 0));
 		}
-		for (int i = 0; i < nbTrap ; i++) {
+		for (int i = 0; i < nbTrap; i++) {
 			elementSet.add(new Piege(0, 0));
 		}
-		for (int i = 0; i < nbMonstre ; i++) {
+		for (int i = 0; i < nbMonstre; i++) {
 			elementSet.add(new Monstre(0, 0));
 		}
-		for (int i = 0; i < nbHerbe ; i++) {
+		for (int i = 0; i < nbHerbe; i++) {
 			elementSet.add(new Herbe(0, 0));
 		}
 		return elementSet;
@@ -80,7 +81,7 @@ public class Carte {
 					nombreAleatoire = random.nextInt(set.size());
 					generated[i][j] = set.get(nombreAleatoire);
 					set.remove(nombreAleatoire);
-				} 
+				}
 			}
 		}
 		return generated;
@@ -111,43 +112,33 @@ public class Carte {
 	}
 
 	public String getElement(int m, Joueur player) {
-		switch (m) {
-		case 8: 
-			
-			if(!(player.getX() - 1 <= 0)) {
+
+		try {
+			switch (m) {
+			case 8:
+
 				return this.carte[player.getX() - 1][player.getY()].getRepresentedBy();
-			}		
-			return "9";
-		case 2:
-			if(!(player.getX() + 1 >= 19)) {
+			case 2:
 				return this.carte[player.getX() + 1][player.getY()].getRepresentedBy();
-			}		
-			return "9";
-			
-			
-			
-			
-		case 4:
-			if(!(player.getY() - 1 <= 0)) {
+
+			case 4:
 				return this.carte[player.getX()][player.getY() - 1].getRepresentedBy();
-			}		
-			return "9";
-			
-		case 6:
-			if(!(player.getY() + 1 >= 19)) {
+
+			case 6:
 				return this.carte[player.getX()][player.getY() + 1].getRepresentedBy();
-			}		
-			return "9";
-		case 0: 
-			return "0";
-		
-		default:
-			System.out.println("Ce mouvement n'est pas valide");
+			case 0:
+				return "0";
+
+			default:
+				System.err.println("Ce mouvement n'est pas valide");
+				return "9";
+			}
+		} catch (ArrayIndexOutOfBoundsException e) {
+			System.err.println("Hop hop hop ! Reste sur la carte bonhomme !");
+
 		}
 		return "9";
+
 	}
 
-	
-
-	
 }
