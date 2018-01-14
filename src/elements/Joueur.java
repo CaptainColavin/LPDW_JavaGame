@@ -4,7 +4,7 @@ public class Joueur extends Element {
 	int gold, key,vie;
 
 	public Joueur() {
-		super(0, 0, "x");
+		super(0, 0, "x", "hero.png");
 		this.vie = 10;
 		this.gold = 0;
 		this.key = 0;
@@ -100,5 +100,4 @@ public class Joueur extends Element {
 		System.out.println();
 		System.out.println("Vous avez " + this.getVie()+ "PV, " + this.getGold()+ " pièces d'or et " + this.getKey()+ " Clés");
 	}
-
 }

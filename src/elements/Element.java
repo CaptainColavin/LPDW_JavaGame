@@ -2,12 +2,13 @@ package elements;
 
 public class Element{
 	int x, y;
-	String representedBy; 
+	String representedBy, image; 
 
-	public Element(int x, int y, String representedBy) {
+	public Element(int x, int y, String representedBy, String image) {
 		this.x = x;
 		this.y = y;
 		this.representedBy = representedBy;
+		this.image = image;
 	}
 	
 	public static void reaction(int typeOfElement) {
@@ -36,5 +37,9 @@ public class Element{
 
 	public void setY(int y) {
 		this.y = y;
+	}
+
+	public String getElement() {
+		return image;
 	}
 }

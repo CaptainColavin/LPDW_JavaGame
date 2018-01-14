@@ -5,8 +5,8 @@ public class Piege extends Element{
 
 
 	public Piege(int x, int y) {
-		super(x, y, "7");
+		super(x, y, "7", "piege.png");
 		this.degat = 1;
 	}
-
+	
 }

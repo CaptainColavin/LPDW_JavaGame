@@ -16,9 +16,15 @@ public class Appli {
 
 	
 	public static void main(String[] args) throws IOException {
+		
+		
+		
+
+		
 		ArrayList<Element> set = Carte.generateElementSet(Nbfleur,NbArbre,NbRocher,NbClef,NbLock,NbGold,NbTrap,NbMonstre, nbHerbe);
 		Carte carte = new Carte();
 		carte.setCarte(carte.generateMap(20, 20, set));
+		Fenetre fen = new Fenetre(carte.getCarte());
 		carte.afficherCarte();
 		Joueur player = (Joueur) carte.getCarte()[0][0];
 		int mouvement;
